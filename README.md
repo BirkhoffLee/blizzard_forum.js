@@ -33,7 +33,7 @@ blizzforum.query()
 ### topic()
 > *Returns an array of functions.*
 
-This loads a topic with URL https&#58;//us.battle.net/forums/en/*forum_name*/topic/*topic_id*:
+This loads a topic with URL https://us.battle&#46;net/forums/en/*forum_name*/topic/*topic_id*:
 ```js
 .query().topic(forum_name, topic_id)
 ```
