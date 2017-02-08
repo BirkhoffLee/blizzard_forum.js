@@ -23,12 +23,16 @@ Follow to the *Features* part.
 What can this API do? And how?
 
 ## query()
+> *Returns an array of functions.*
+
 Initalizes an query expression.
 ```js
 blizzforum.query()
 ```
 
 ### topic()
+> *Returns an array of functions.*
+
 This loads a topic with URL https://us.battle.net/forums/en/*forum_name*/topic/*topic_id*:
 ```js
 .query().topic(forum_name, topic_id)
@@ -42,6 +46,8 @@ you should run:
 ```
 
 #### data()
+> *Returns a Promise object.*
+
 This loads the topic's information. Attributes available: *id*, *lastPosition*, *forum*, *isSticky*, *isFeatured*, *isLocked*, *isHidden*, *isFrozen*, *isSpam* and *pollId*.
 
 ```js
