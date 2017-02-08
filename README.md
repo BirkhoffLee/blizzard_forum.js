@@ -1,5 +1,16 @@
-# Blizzard Forums Node API
-An *unofficial* Node.js API interface for Blizzard Forums.
+<p align="center">
+    <img src="https://rawgit.com/BirkhoffLee/blizzard_forum.js/master/logo.svg"
+         height="120">
+</p>
+<p align="center">
+    <a href="https://drone.birkhoff.me/BirkhoffLee/blizzard_forum.js">
+        <img src="https://drone.birkhoff.me/api/badges/BirkhoffLee/blizzard_forum.js/status.svg"
+             alt="Build Status">
+    </a>
+</p>
+<p align="center">
+    <sup><i>An unofficial Node.js API for Blizzard Forums.</i></sup>
+</p>
 
 # Usage
 Load the API with:
