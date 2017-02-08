@@ -1,5 +1,5 @@
 {
-  "name": "BlizzardForumsNodeAPI",
+  "name": "blizzard_forum.js",
   "version": "1.0.0",
   "description": "An UNOFFICIAL Node.js API for Blizzard Forums.",
   "main": "src/index.js",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "babel src -d dist --source-maps",
-    "test": "yarn run compile && mocha --compilers js:babel-core/register",
+    "test": "npm run compile && mocha --compilers js:babel-core/register",
     "compile": "babel --presets es2015 -d lib/ src/"
   },
   "dependencies": {
