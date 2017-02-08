@@ -8,7 +8,7 @@ Load the API with:
 var blizzforum = require('../lib/index.js')
 ```
 
-That's it. And you may want to set the host and region:
+That's it. And you may want to set the host and region, which are set to `https://us.battle.net` and `en` by default:
 
 ```js
 // https://us.battle.net/forums/en
