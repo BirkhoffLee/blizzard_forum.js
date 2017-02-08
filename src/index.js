@@ -9,7 +9,7 @@ let config = {
         region: "en"
     },
     general: {
-        debug: true
+        debug: false
     }
 }
 
