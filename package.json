@@ -1,0 +1,28 @@
+{
+  "name": "BlizzardForumsNodeAPI",
+  "version": "1.0.0",
+  "description": "An UNOFFICIAL Node.js API for Blizzard Forums.",
+  "main": "src/index.js",
+  "repository": "https://github.com/BirkhoffLee/blizzard_forums_node_api",
+  "author": "Birkhoff Lee <github@birkhoff.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "build": "babel src -d dist --source-maps",
+    "test": "yarn run compile && mocha --compilers js:babel-core/register",
+    "compile": "babel --presets es2015 -d lib/ src/"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "lodash": "^4.17.4",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
+}
