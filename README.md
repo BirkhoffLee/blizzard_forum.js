@@ -66,3 +66,4 @@ This loads the topic's information. Attributes available: *id*, *lastPosition*, 
     console.log(data.isLocked);
 });
 ```
+
