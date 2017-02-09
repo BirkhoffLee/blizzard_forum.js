@@ -14,5 +14,26 @@ describe('query', () => {
                 });
             });
         });
+
+        describe('posts', () => {
+            it('should return an array of posts info', () => {
+                // https://us.battle.net/forums/en/bnet/topic/14729973498
+
+                blizzforum.query().topic("bnet", 14729973498).posts().then((posts) => {
+                    posts.forEach(post => {
+                        expect(post).to.have.property("id");
+                        expect(post).to.have.property("position").and.not.equal(NaN);
+                    });
+                });
+            });
+
+            it('should have isBlizzardPost equals true', () => {
+                // https://us.battle.net/forums/en/bnet/topic/14729973498
+
+                blizzforum.query().topic("bnet", 14729973498).posts().then((posts) => {
+                    assert.equal(posts[0].isBlizzardPost, true);
+                });
+            });
+        });
     });
 });
