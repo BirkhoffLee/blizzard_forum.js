@@ -80,8 +80,12 @@ This loads the topic's information. Attributes available: *id*, *lastPosition*, 
 
 This loads the topic's all posts. Attributes available: *id*, *position*, *info*, *attributes*, *create_time*, *lastEditTime*, *isBlizzardPost*, *url* and *content*.
 
+2 arguments accepted: *fields* and *filters*. *fields* is an array which contains the fields you want, for example, *create_time*. Pass `null` for getting everything. *filters* is an functions which is the filter function (`Array.prototype.filter`) for the result. Both arguments are optional.
+
+The example below is to gather all create times of the Blizzard-staff posted contents under a topic.
+
 ```js
-.query().topic(...).posts().then((posts) => {
-    posts.forEach(post => { console.log(post.content); })
+.query().topic(...).posts(['create_time'], (post) => { return post.isBlizzardPost }).then((posts) => {
+    posts.forEach(post => { console.log(post.create_time); })
 });
 ```
