@@ -127,7 +127,7 @@ export default class blizzardForum {
         _set(config, name, value)
     }
 
-    query (name, value) {
+    query () {
         return {
             topic: _query_topic
         }
