@@ -1,6 +1,6 @@
 {
   "name": "blizzard_forum",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An UNOFFICIAL Node.js API for Blizzard Forums.",
   "main": "./dist/index.js",
   "repository": "https://github.com/BirkhoffLee/blizzard_forums_node_api",
