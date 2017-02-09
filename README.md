@@ -7,6 +7,14 @@
         <img src="https://drone.birkhoff.me/api/badges/BirkhoffLee/blizzard_forum.js/status.svg"
              alt="Build Status">
     </a> -->
+    <a href="https://npmjs.org/package/blizzard_forum.js">
+        <img src="https://img.shields.io/npm/dm/blizzard_forum.js.svg"
+              alt="NPM version">
+    </a>
+    <a href="https://npmjs.org/package/blizzard_forum.js">
+        <img src="https://img.shields.io/npm/v/blizzard_forum.js.svg"
+              alt="NPM downloads">
+    </a>
     <a href="https://travis-ci.org/BirkhoffLee/blizzard_forum.js">
         <img src="https://travis-ci.org/BirkhoffLee/blizzard_forum.js.svg?branch=master"
              alt="Build Status">
@@ -21,10 +29,16 @@
 </p>
 
 # Usage
-Load the API with:
+Simply download & save it to your *package.json* with:
+
+```
+$ npm install --save blizzard_forum.js
+```
+
+Load it with:
 
 ```js
-var blizzforum = require('../lib/index.js')
+let blizzforum = require('blizzard_forum.js')
 ```
 
 That's it. And you may want to set the host and region, which are set to `https://us.battle.net` and `en` by default:
@@ -32,19 +46,21 @@ That's it. And you may want to set the host and region, which are set to `https:
 ```js
 // https://us.battle.net/forums/en
 
-blizzforum.set("server.host", "https://us.battle.net");
-blizzforum.set("server.region", "en");
+blizzforum.set("server.host", "https://us.battle.net")
+blizzforum.set("server.region", "en")
 ```
 
-Follow to the *Features* part.
+# Contribute & Development
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 # Features
-What can this API do? And how?
+Functionalities of this API.
 
 ## query()
 > *Returns an array of functions.*
 
 Initalizes an query expression.
+
 ```js
 blizzforum.query()
 ```
@@ -53,6 +69,7 @@ blizzforum.query()
 > *Returns an array of functions.*
 
 This loads a topic with URL https://<i>&#8203;</i>us.battle.net/forums/en/<i>**forum_name**</i>/topic/<i>**topic_id**</i>:
+
 ```js
 .query().topic(forum_name, topic_id)
 ```
