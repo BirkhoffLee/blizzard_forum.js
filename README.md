@@ -28,6 +28,9 @@
     <sup><i>An unofficial Node.js API for Blizzard (Battle.net) Forums.</i></sup>
 </p>
 
+# Try Now
+Run a sample online to see how this API works. See https://runkit.com/589c34b711ea6e0014d52749/589c45b311ea6e0014d52d35.
+
 # Usage
 Simply download & save it to your *package.json* with:
 
