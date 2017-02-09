@@ -53,10 +53,10 @@ let blizForum = new blizzardForum.default()
 That's it. And you may want to set the host and region, which are set to `https://us.battle.net` and `en` by default:
 
 ```js
-// https://us.battle.net/forums/en
+// https://tw.battle.net/forums/zh
 
-blizForum.set("server.host", "https://us.battle.net")
-blizForum.set("server.region", "en")
+blizForum.set("server.host", "https://tw.battle.net")
+blizForum.set("server.region", "zh")
 ```
 
 # Contribute & Development
@@ -71,7 +71,7 @@ Functionalities of this API.
 Initalizes an query expression.
 
 ```js
-blizzforum.query()
+blizForum.query()
 ```
 
 ### topic()
