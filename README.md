@@ -3,9 +3,17 @@
          height="120">
 </p>
 <p align="center">
-    <a href="https://drone.birkhoff.me/BirkhoffLee/blizzard_forum.js">
+    <!-- <a href="https://drone.birkhoff.me/BirkhoffLee/blizzard_forum.js">
         <img src="https://drone.birkhoff.me/api/badges/BirkhoffLee/blizzard_forum.js/status.svg"
              alt="Build Status">
+    </a> -->
+    <a href="https://travis-ci.org/BirkhoffLee/blizzard_forum.js">
+        <img src="https://travis-ci.org/BirkhoffLee/blizzard_forum.js.svg?branch=master"
+             alt="Build Status">
+    </a>
+    <a href="https://coveralls.io/github/BirkhoffLee/blizzard_forum.js?branch=master">
+        <img src="https://coveralls.io/repos/github/BirkhoffLee/blizzard_forum.js/badge.svg?branch=master"
+             alt="Coverage Status">
     </a>
 </p>
 <p align="center">
