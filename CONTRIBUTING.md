@@ -20,6 +20,7 @@ for contributing. Few words to describe the goal of this document:
 4. For non-trivial contributions, pull requests should sit for at least 36 hours to ensure that contributors in other timezones have time to review. Consideration should also be given to weekends and other holiday periods to ensure active committers all have reasonable time to become involved in the discussion and review process if they wish.
 5. The default for each contribution is that it is accepted once no committer has an objection.
 6. In the case of an objection being raised in a pull request by another committer, all involved committers should seek to arrive at a consensus by way of addressing concerns being expressed by discussion, compromise on the proposed change, or withdrawal of the proposed change.
+7. Anything should be written in English, for example, code comments, commit messages, pull requests as well as issues, etc.
 
 # Becoming a Committer
 All contributors who land a non-trivial contribution should be on-boarded in a timely manner, and added as a committer, and be given write access to the repository.
@@ -28,4 +29,4 @@ Committers are expected to follow this policy and continue to send pull requests
 
 # About this document
 Just in case you ask, this document is a modified version of [https://github.com/expressjs/express/blob/master/Contributing.md](ExpressJS) as I think it's already widely accepted by hundreds of contributors.
-The original document uses [https://github.com/expressjs/express/blob/master/LICENSE](MIT license), thus it's legal for me to copy anything from it.
+The original document uses [https://github.com/expressjs/express/blob/master/LICENSE](MIT license), thus it's legal for me to copy anything from it. And if you are the original author, thank you.
