@@ -1,5 +1,5 @@
 # Contributing Guide
-First, thanks for contributing this project to make it better.
+First, thank you so much for contributing this project to make it better.
 Before you start, we want to make sure you follow the guidelines
 for contributing. Few words to describe the goal of this document:
 
@@ -27,6 +27,6 @@ All contributors who land a non-trivial contribution should be on-boarded in a t
 
 Committers are expected to follow this policy and continue to send pull requests, go through proper review, and have other committers merge their pull requests.
 
-# About this document
-This document is a modified version of [ExpressJS](https://github.com/expressjs/express/blob/master/Contributing.md)'s as I think it's already widely accepted by hundreds of contributors.
-The original document uses [MIT license](https://github.com/expressjs/express/blob/master/LICENSE), thus it's legal for me to copy anything from it. And if you are the original author, thank you.
+# About this Document
+This document is a modified version of [ExpressJS](https://github.com/expressjs/express/blob/master/Contributing.md)' as I think it's already widely accepted by hundreds of contributors.
+The original document uses [MIT license](https://github.com/expressjs/express/blob/master/LICENSE), thus it's legal for me to copy anything from it. And if you are the original author, thank you for the hark work, I really appreciate it.
