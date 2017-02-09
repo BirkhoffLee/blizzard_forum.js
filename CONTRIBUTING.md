@@ -1,5 +1,5 @@
 # Contributing Guide
-First, thanks for contributing this project and make it better.
+First, thanks for contributing this project to make it better.
 Before you start, we want to make sure you follow the guidelines
 for contributing. Few words to describe the goal of this document:
 
@@ -15,8 +15,7 @@ for contributing. Few words to describe the goal of this document:
 
 # Contributing
 1. Be courteous and respectful. Every participant is expected to follow the project's Code of Conduct.
-2. Any changes to resources in this repository **must** be through pull requests, this
-applies to all changes to codes, documentations, etc.
+2. Any changes to resources in this repository **must** be through pull requests, this applies to all changes to codes, documentations, etc.
 3. No pull request can be merged without being reviewed.
 4. For non-trivial contributions, pull requests should sit for at least 36 hours to ensure that contributors in other timezones have time to review. Consideration should also be given to weekends and other holiday periods to ensure active committers all have reasonable time to become involved in the discussion and review process if they wish.
 5. The default for each contribution is that it is accepted once no committer has an objection.
