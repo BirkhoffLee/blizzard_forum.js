@@ -9,7 +9,7 @@ let config = {
         region: "en"
     },
     general: {
-        debug: true
+        debug: false
     }
 }
 
@@ -128,7 +128,3 @@ export function query (name, value) {
         topic: query_topic
     };
 }
-
-query().topic("bnet",16716831607).posts().then((info) => {
-    debug(info)
-})
