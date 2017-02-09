@@ -8,11 +8,11 @@
              alt="Build Status">
     </a> -->
     <a href="https://npmjs.org/package/blizzard_forum">
-        <img src="https://img.shields.io/npm/dm/blizzard_forum.svg"
+        <img src="https://img.shields.io/npm/v/blizzard_forum.svg"
               alt="NPM version">
     </a>
     <a href="https://npmjs.org/package/blizzard_forum">
-        <img src="https://img.shields.io/npm/v/blizzard_forum.svg"
+        <img src="https://img.shields.io/npm/dm/blizzard_forum.svg"
               alt="NPM downloads">
     </a>
     <a href="https://travis-ci.org/BirkhoffLee/blizzard_forum.js">
@@ -29,7 +29,7 @@
 </p>
 
 # Try Now
-Run a sample online to see how this API works. See https://runkit.com/589c34b711ea6e0014d52749/589c45b311ea6e0014d52d35.
+Run a sample online to see how this API works. See https://goo.gl/8KKqWN.
 
 # Usage
 Simply download & save it to your *package.json* with:
