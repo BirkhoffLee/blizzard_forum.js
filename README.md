@@ -67,3 +67,13 @@ This loads the topic's information. Attributes available: *id*, *lastPosition*, 
 });
 ```
 
+#### posts()
+> *Returns a Promise object.*
+
+This loads the topic's all posts. Attributes available: *id*, *position*, *info*, *attributes*, *create_time*, *lastEditTime*, *isBlizzardPost*, *url* and *content*。
+
+```js
+.query().topic(...).posts().then((posts) => {
+    posts.forEach(post => { console.log(post.content); })
+});
+```
