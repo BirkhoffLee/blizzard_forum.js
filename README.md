@@ -17,7 +17,7 @@
     </a>
 </p>
 <p align="center">
-    <sup><i>An unofficial Node.js API for Blizzard Forums.</i></sup>
+    <sup><i>An unofficial Node.js API for Blizzard (Battle.net) Forums.</i></sup>
 </p>
 
 # Usage
