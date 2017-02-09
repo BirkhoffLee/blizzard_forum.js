@@ -7,12 +7,12 @@
         <img src="https://drone.birkhoff.me/api/badges/BirkhoffLee/blizzard_forum.js/status.svg"
              alt="Build Status">
     </a> -->
-    <a href="https://npmjs.org/package/blizzard_forum.js">
-        <img src="https://img.shields.io/npm/dm/blizzard_forum.js.svg"
+    <a href="https://npmjs.org/package/blizzard_forum">
+        <img src="https://img.shields.io/npm/dm/blizzard_forum.svg"
               alt="NPM version">
     </a>
-    <a href="https://npmjs.org/package/blizzard_forum.js">
-        <img src="https://img.shields.io/npm/v/blizzard_forum.js.svg"
+    <a href="https://npmjs.org/package/blizzard_forum">
+        <img src="https://img.shields.io/npm/v/blizzard_forum.svg"
               alt="NPM downloads">
     </a>
     <a href="https://travis-ci.org/BirkhoffLee/blizzard_forum.js">
@@ -32,13 +32,13 @@
 Simply download & save it to your *package.json* with:
 
 ```
-$ npm install --save blizzard_forum.js
+$ npm install --save blizzard_forum
 ```
 
 Load it with:
 
 ```js
-let blizzforum = require('blizzard_forum.js')
+let blizzforum = require('blizzard_forum')
 ```
 
 That's it. And you may want to set the host and region, which are set to `https://us.battle.net` and `en` by default:
