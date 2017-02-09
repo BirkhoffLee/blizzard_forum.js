@@ -3,6 +3,8 @@ import 'babel-polyfill'
 var assert = require('assert');
 var blizzforum = require('../lib/index.js')
 
+// blizzforum.set("general.debug", "true");
+
 describe('query', () => {
     describe('topic', () => {
         describe('data', () => {
@@ -10,7 +12,7 @@ describe('query', () => {
                 // https://us.battle.net/forums/en/bnet/topic/13815891462
 
                 blizzforum.query().topic("bnet", 13815891462).data().then((data) => {
-                    assert.equal(data.isLocked, true);
+                    expect(data.isLocked).to.be.true;
                 });
             });
         });
@@ -27,11 +29,38 @@ describe('query', () => {
                 });
             });
 
-            it('should have isBlizzardPost equals true', () => {
+            it('should have isBlizzardPost equal true', () => {
                 // https://us.battle.net/forums/en/bnet/topic/14729973498
 
                 blizzforum.query().topic("bnet", 14729973498).posts().then((posts) => {
-                    assert.equal(posts[0].isBlizzardPost, true);
+                    expect(post[0].isBlizzardPost).to.be.true;
+                });
+            });
+
+            it('should only return posts which its property isBlizzardPost equals true', () => {
+                // https://us.battle.net/forums/en/bnet/topic/14729973498
+
+                blizzforum.query().topic("bnet", 14729973498).posts(null, (post) => { return post.isBlizzardPost }).then((posts) => {
+                    posts.map((post) => expect(post.isBlizzardPost).to.be.true);
+                });
+            });
+
+            it('should only return post ids', () => {
+                // https://us.battle.net/forums/en/bnet/topic/14729973498
+
+                blizzforum.query().topic("bnet", 14729973498).posts(['id']).then((posts) => {
+                    expect(post.length).to.equal(1);
+                    expect(post.id).to.be.an("int");
+                });
+            });
+
+            it('should return only the post ids for which its property isBlizzardPost equals true', () => {
+                // https://us.battle.net/forums/en/bnet/topic/14729973498
+
+                blizzforum.query().topic("bnet", 14729973498).posts(['id'], (post) => { return post.isBlizzardPost }).then((posts) => {
+                    expect(post.length).to.equal(1);
+                    expect(post.id).to.be.an("int");
+                    posts.map((post) => expect(post.isBlizzardPost).to.be.true);
                 });
             });
         });

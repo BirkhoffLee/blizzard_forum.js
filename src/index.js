@@ -74,6 +74,46 @@ function query_topic (forumName, topicID) {
     }));
 }
 
+function query_topic_posts (requestPromise, fields, filter) {
+    return requestPromise.then(pages => {
+        let posts = [];
+
+        pages.map(($, pageIndex) => {
+            $("section.Topic > div.Topic-content > div.TopicPost").each((index, post) => {
+                let lastEditTime, createTime, result;
+
+                $("div.TopicPost-content > div.TopicPost-body > div.TopicPost-details > div.Timestamp-details > a", post).each((i, t) => {
+                    if ($(t).text().trim() == "(Edited)") {
+                        lastEditTime = $(t).data("tooltip-content");
+                    } else {
+                        createTime = $(t).data("tooltip-content");
+                    }
+                });
+                
+                result = {
+                    id: $(post).data("topic-post").id,
+                    position: pageIndex * 20 + index + 1,
+                    info: $(post).data("topic-post"),
+                    attributes: $(post).data("topic"),
+                    create_time: createTime,
+                    lastEditTime: lastEditTime,
+                    isBlizzardPost: $(post).hasClass("TopicPost--blizzard"),
+                    url: config.server.host + $("div.TopicPost-content > div.TopicPost-body > div.TopicPost-details span.Dropdown-item", post).data("clipboard-text"),
+                    content: $("div.TopicPost-content > div.TopicPost-body div.TopicPost-bodyContent", post).html()
+                };
+
+                if (fields) fields.reduce((a, b) => { a[b] = result[b]; return a; }, {});
+
+                posts.push(result);
+            });
+        });
+        
+        if (filter) return posts.filter(filter);
+
+        return posts;
+    });
+}
+
 function query_topic_functions (requestPromise) {
     return {
         data: () => {
@@ -81,39 +121,7 @@ function query_topic_functions (requestPromise) {
                 return pages[0]("section.Topic").data("topic");
             });
         },
-        posts: () => {
-            return requestPromise.then(pages => {
-                let posts = [];
-
-                Array.prototype.forEach.call(pages, ($, pageIndex) => {
-                    $("section.Topic > div.Topic-content > div.TopicPost").each((index, post) => {
-                        let lastEditTime, createTime;
-
-                        $("div.TopicPost-content > div.TopicPost-body > div.TopicPost-details > div.Timestamp-details > a", post).each((i, t) => {
-                            if ($(t).text().trim() == "(Edited)") {
-                                lastEditTime = $(t).data("tooltip-content");
-                            } else {
-                                createTime = $(t).data("tooltip-content");
-                            }
-                        });
-
-                        posts.push({
-                            id: $(post).data("topic-post").id,
-                            position: pageIndex * 20 + index + 1,
-                            info: $(post).data("topic-post"),
-                            attributes: $(post).data("topic"),
-                            create_time: createTime,
-                            lastEditTime: lastEditTime,
-                            isBlizzardPost: $(post).hasClass("TopicPost--blizzard"),
-                            url: config.server.host + $("div.TopicPost-content > div.TopicPost-body > div.TopicPost-details span.Dropdown-item", post).data("clipboard-text"),
-                            content: $("div.TopicPost-content > div.TopicPost-body div.TopicPost-bodyContent", post).html()
-                        });
-                    });
-                });
-
-                return posts;
-            });
-        }
+        posts: (fields, filter) => { return query_topic_posts(requestPromise, fields, filter); }
     }
 }
 

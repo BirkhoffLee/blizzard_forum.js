@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "6.9"
+notifications:
+  email:
+    - github@birkhoff.me
+before_install:
+  - npm install
+script:
+  - npm --silent test
+  - cat ./coverage/lcov.info | coveralls

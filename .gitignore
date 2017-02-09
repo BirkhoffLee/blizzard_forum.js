@@ -3,3 +3,5 @@ lib/
 node_modules/
 yarn.lock
 .DS_Store
+coverage
+.nyc_output
