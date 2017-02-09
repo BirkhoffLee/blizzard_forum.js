@@ -1,8 +1,8 @@
 {
-  "name": "blizzard_forum.js",
-  "version": "1.0.0",
+  "name": "blizzard_forum",
+  "version": "1.0.2",
   "description": "An UNOFFICIAL Node.js API for Blizzard Forums.",
-  "main": "src/index.js",
+  "main": "./dist/index.js",
   "repository": "https://github.com/BirkhoffLee/blizzard_forums_node_api",
   "author": "Birkhoff Lee <github@birkhoff.me>",
   "license": "MIT",
@@ -21,7 +21,8 @@
   "scripts": {
     "build": "babel src -d dist --source-maps",
     "test": "NODE_ENV=nyc babel src --out-dir lib && nyc mocha",
-    "compile": "babel --presets es2015 -d lib/ src/"
+    "compile": "babel --presets es2015 -d lib/ src/",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "cheerio": "^0.22.0",
