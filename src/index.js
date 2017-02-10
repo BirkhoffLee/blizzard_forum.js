@@ -28,7 +28,6 @@ TopicNotFoundError.prototype.constructor = TopicNotFoundError;
 
 function _query_topic_request_errhandlr (error) {
     if (error.name === "StatusCodeError") {
-        console.log(error.statusCode)
         if (error.statusCode === 404) {
             throw new TopicNotFoundError("The requested topic couldn't be found. Please check your forum_name and topic_id.")
         }
@@ -64,7 +63,7 @@ function _query_topic_return_all_pages_cheerio_obj (options) {
             }
 
             return Promise.all(requestPromises).then(values => {
-                values.unshift($) // Add the first page to the result
+                values.unshift($) // Adds the first page to the result
                 
                 return values
             })

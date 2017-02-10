@@ -29,7 +29,7 @@
 </p>
 
 # Try Now
-Run a sample online to see how this API works. See https://goo.gl/8KKqWN.
+[Run a sample online](https://goo.gl/ns39W6) to see how this API works.
 
 # Usage
 Simply download & save it to your *package.json* with:
@@ -66,7 +66,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 Functionalities of this API.
 
 ## query()
-> *Returns an array of functions.*
+> *Returns an object of functions.*
 
 Initalizes an query expression.
 
@@ -74,21 +74,20 @@ Initalizes an query expression.
 blizForum.query()
 ```
 
-### topic()
+### topic(forum_name, topic_id(, onError))
 > *Returns an array of functions.*
 
-This loads a topic with URL https://<i>&#8203;</i>us.battle.net/forums/en/<i>**forum_name**</i>/topic/<i>**topic_id**</i>:
+This loads a topic with URL https://<i>&#8203;</i>us.battle.net/forums/en/<i>**forum_name**</i>/topic/<i>**topic_id**</i>.
 
-```js
-.query().topic(forum_name, topic_id)
-```
-
-Let's say you want to load this topic: https://us.battle.net/forums/en/bnet/topic/13815891462,
-you should run: 
+Let's say we're loading this topic: https://us.battle.net/forums/en/bnet/topic/13815891462,
+thus we should run: 
 
 ```js
 .query().topic("bnet", 13815891462)
 ```
+
+*onError* is a function which handles the error during the loading process.
+It takes 1 argument: *error*, which contains the error information.
 
 #### data()
 > *Returns a Promise object.*
@@ -101,17 +100,21 @@ This loads the topic's information. Attributes available: *id*, *lastPosition*, 
 });
 ```
 
-#### posts()
-> *Returns a Promise object.*
+#### posts((*fields*)(, *filters*))
+> *Returns a Promise object.* Loads all posts of a topic.
 
-This loads the topic's all posts. Attributes available: *id*, *position*, *info*, *attributes*, *create_time*, *lastEditTime*, *isBlizzardPost*, *url* and *content*.
+*fields* is an **array** that tells the API what information you want. For example, if you pass `["isBlizzardPost"]`,
+the result you get will be something like `[{isBlizzardPost: true}, {isBlizzardPost: false}, ...]`.
 
-2 arguments accepted: *fields* and *filters*. *fields* is an array which contains the fields you want, for example, *create_time*. Pass `null` for getting everything. *filters* is an functions which is the filter function (`Array.prototype.filter`) for the result. Both arguments are optional.
+*filters* is a **function** which tells the API that if you wish a post to be in your result. It takes 1 argument, an object
+with everything about the post: *id*, *position*, *info*, *attributes*, *create_time*, *lastEditTime*, *isBlizzardPost*, *url* and *content*.
 
-The example below is to gather all create times of the Blizzard-staff posted contents under a topic.
+Both arguments are optional.
+
+The example below is to print all URLs (and it will only get the URLs) of the Blizzard-staff posted contents under a topic.
 
 ```js
-.query().topic(...).posts(['create_time'], (post) => { return post.isBlizzardPost }).then((posts) => {
-    posts.forEach(post => { console.log(post.create_time); })
+.query().topic(...).posts(['url'], (post) => { return post.isBlizzardPost }).then((posts) => {
+    posts.forEach(post => { console.log(post.url) })
 });
 ```
