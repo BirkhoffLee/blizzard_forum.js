@@ -20,8 +20,8 @@
              alt="Build Status" />
     </a>
     <a href="https://codecov.io/gh/BirkhoffLee/blizzard_forum.js">
-        <img src="https://codecov.io/gh/BirkhoffLee/blizzard_forum.js/branch/master/graph/badge.svg"
-            alt="Coverage Status" />
+        <img src="https://codecov.io/gh/BirkhoffLee/blizzard_forum.js/branch/master/graph/badge.svg"
+             alt="Coverage Status" />
     </a>
     <!-- <a href="https://coveralls.io/github/BirkhoffLee/blizzard_forum.js?branch=master">
         <img src="https://coveralls.io/repos/github/BirkhoffLee/blizzard_forum.js/badge.svg?branch=master"
