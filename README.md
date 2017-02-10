@@ -5,24 +5,28 @@
 <p align="center">
     <!-- <a href="https://drone.birkhoff.me/BirkhoffLee/blizzard_forum.js">
         <img src="https://drone.birkhoff.me/api/badges/BirkhoffLee/blizzard_forum.js/status.svg"
-             alt="Build Status">
+             alt="Build Status" />
     </a> -->
     <a href="https://npmjs.org/package/blizzard_forum">
         <img src="https://img.shields.io/npm/v/blizzard_forum.svg"
-              alt="NPM version">
+              alt="NPM version" />
     </a>
     <a href="https://npmjs.org/package/blizzard_forum">
         <img src="https://img.shields.io/npm/dm/blizzard_forum.svg"
-              alt="NPM downloads">
+              alt="NPM downloads" />
     </a>
     <a href="https://travis-ci.org/BirkhoffLee/blizzard_forum.js">
         <img src="https://travis-ci.org/BirkhoffLee/blizzard_forum.js.svg?branch=master"
-             alt="Build Status">
+             alt="Build Status" />
     </a>
-    <a href="https://coveralls.io/github/BirkhoffLee/blizzard_forum.js?branch=master">
+    <a href="https://codecov.io/gh/BirkhoffLee/blizzard_forum.js">
+        <img src="https://codecov.io/gh/BirkhoffLee/blizzard_forum.js/branch/master/graph/badge.svg"
+            alt="Coverage Status" />
+    </a>
+    <!-- <a href="https://coveralls.io/github/BirkhoffLee/blizzard_forum.js?branch=master">
         <img src="https://coveralls.io/repos/github/BirkhoffLee/blizzard_forum.js/badge.svg?branch=master"
              alt="Coverage Status">
-    </a>
+    </a> -->
 </p>
 <p align="center">
     <sup><i>An unofficial Node.js API for Blizzard (Battle.net) Forums.</i></sup>
