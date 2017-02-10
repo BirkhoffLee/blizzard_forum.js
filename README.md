@@ -35,7 +35,7 @@
 * **[INSTALL](#installation)** – installation instructions
 * **[CONTRIBUTING](#contribute--development)** – project contribution guidelines
 * **[DOCUMENTATION](#features)** – spec for the visual design of Shields badges.
-* **[LICENSE](LICENSE.md)** – license information
+* **[LICENSE](LICENSE)** – license information
 
 # Try Now
 [Run a sample online](https://goo.gl/ns39W6) to see how this API works.
