@@ -32,10 +32,15 @@
     <sup><i>An unofficial Node.js API for Blizzard (Battle.net) Forums.</i></sup>
 </p>
 
+* **[INSTALL](#installation)** – installation instructions
+* **[CONTRIBUTING](#contribute--development)** – project contribution guidelines
+* **[DOCUMENTATION](#features)** – spec for the visual design of Shields badges.
+* **[LICENSE](LICENSE.md)** – license information
+
 # Try Now
 [Run a sample online](https://goo.gl/ns39W6) to see how this API works.
 
-# Usage
+# Installation
 Simply download & save it to your *package.json* with:
 
 ```
