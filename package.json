@@ -1,6 +1,6 @@
 {
   "name": "blizzard_forum",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An UNOFFICIAL Node.js API for Blizzard Forums.",
   "main": "./dist/index.js",
   "repository": "https://github.com/BirkhoffLee/blizzard_forums_node_api",
@@ -23,7 +23,7 @@
     "test": "NODE_ENV=nyc babel src --out-dir lib && nyc mocha",
     "compile": "babel --presets es2015 -d lib/ src/",
     "prepublish": "npm run build",
-    "cleanup": "read -p \"Are you sure? \" -n 1 -r; echo; echo; if [[ ! $REPLY =~ ^[Yy]$ ]]; then echo \"No changes made.\"; exit 0; fi; rm -rf ./dist/ ./lib/ ./node_modules/ ./yarn.lock ./.DS_Store ./coverage ./.nyc_output; echo Done."
+    "cleanup": "read -p \"Are you sure? \" -n 1 -r; echo; echo; if [[ ! $REPLY =~ ^[Yy]$ ]]; then echo \"No changes made.\"; exit 0; fi; rm -rf ./dist/ ./lib/ ./.DS_Store ./coverage ./.nyc_output; echo Done."
   },
   "dependencies": {
     "cheerio": "^0.22.0",

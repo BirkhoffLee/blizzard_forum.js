@@ -1,4 +1,5 @@
 import _set from "lodash/set"
+import _pick from "lodash/pick"
 let request = require("request-promise")
 let cheerio = require("cheerio")
 
@@ -12,34 +13,40 @@ let config = {
     }
 }
 
-function _debug (message) {
-    if (config.general._debug) return console.log(message)
+function _debug (message, force) {
+    if (config.general.debug || force) return console.log(message)
+}
+
+function TopicNotFoundError (message) {
+  this.name = 'TopicNotFoundError';
+  this.message = message;
+  this.stack = (new Error()).stack;
+}
+
+TopicNotFoundError.prototype = Object.create(Error.prototype);
+TopicNotFoundError.prototype.constructor = TopicNotFoundError;
+
+function _query_topic_request_errhandlr (error) {
+    if (error.name === "StatusCodeError") {
+        console.log(error.statusCode)
+        if (error.statusCode === 404) {
+            throw new TopicNotFoundError("The requested topic couldn't be found. Please check your forum_name and topic_id.")
+        }
+
+        // if (error.statusCode !== 200) {
+        //     throw new StatusCodeError(`The server returned HTTP status code ${error.statusCode} instead of 200, aborting`)
+        // }
+    } else { throw error }
 }
 
 function _query_topic_request_resphandlr (response) {
     _debug(`resp statuscode ${response.statusCode}`)
 
-    if (response.statusCode == 302) {
-        throw new Error("The requested topic couldn't be found. Please check your forum_name and topic_id.")
-    }
-
-    if (response.statusCode != 200) {
-        throw new Error(`The server returned HTTP status code ${response.statusCode} instead of 200, aborting`)
-    }
-    
     return cheerio.load(response.body)
 }
 
-function _query_topic (forumName, topicID) {
-    let options = {
-        uri: `${config.server.host}/forums/${config.server.region}/${forumName}/topic/${topicID}`,
-        followRedirect: false,
-        resolveWithFullResponse: true
-    }
-
-    _debug(`qury ${options.uri}`)
-
-    return _query_topic_functions(request(options).then(_query_topic_request_resphandlr).then($ => {
+function _query_topic_return_all_pages_cheerio_obj (options) {
+    return ($) => {
         let pages = $("section.Topic div.Topic-container div.Topic-pagination--header a.Pagination-button--ordinal").length
 
         if (pages > 1) {
@@ -48,11 +55,7 @@ function _query_topic (forumName, topicID) {
             for (let i = 2; i < pages + 1; i++) {
                 let newOptions = options
 
-                if (options.uri.indexOf("?")) {
-                    newOptions.uri = options.uri.split("?")[0] + `?page=${i}`
-                } else {
-                    newOptions.uri = options.uri + `?page=${i}`
-                }
+                newOptions.uri = options.uri.split("?")[0] + `?page=${i}`
 
                 requestPromises.push(new Promise((resolve, reject) => {
                     _debug(`qury ${newOptions.uri}`)
@@ -68,7 +71,26 @@ function _query_topic (forumName, topicID) {
         } else {
             return [$]
         }
-    }))
+    }
+}
+
+function _query_topic (forumName, topicID, errHandlr) {
+    topicID = parseInt(topicID)
+
+    let options = {
+        uri: `${config.server.host}/forums/${config.server.region}/${forumName}/topic/${topicID}`,
+        followRedirect: false,
+        resolveWithFullResponse: true
+    }
+
+    _debug(`qury ${options.uri}`)
+
+    return _query_topic_functions(
+        request(options)
+            .catch(_query_topic_request_errhandlr)
+            .then(_query_topic_request_resphandlr, _query_topic_request_errhandlr)
+            .then(_query_topic_return_all_pages_cheerio_obj(options), errHandlr)
+    )
 }
 
 function _query_topic_posts (requestPromise, fields, filter) {
@@ -88,7 +110,7 @@ function _query_topic_posts (requestPromise, fields, filter) {
                 })
                 
                 result = {
-                    id: $(post).data("topic-post").id,
+                    id: parseInt($(post).data("topic-post").id),
                     position: pageIndex * 20 + index + 1,
                     info: $(post).data("topic-post"),
                     attributes: $(post).data("topic"),
@@ -99,13 +121,21 @@ function _query_topic_posts (requestPromise, fields, filter) {
                     content: $("div.TopicPost-content > div.TopicPost-body div.TopicPost-bodyContent", post).html()
                 }
 
-                if (fields) fields.reduce((a, b) => { a[b] = result[b]; return a }, {})
+                if (typeof filter == "function") {
+                    _debug("filtering")
+                    if (!filter(result)) {
+                        return
+                    }
+                }
+
+                if (fields instanceof Array) {
+                    _debug("field-picking")
+                    result = _pick(result, fields)
+                }
 
                 posts.push(result)
             })
         })
-        
-        if (filter) return posts.filter(filter)
 
         return posts
     })
@@ -131,5 +161,9 @@ export default class blizzardForum {
         return {
             topic: _query_topic
         }
+    }
+
+    __debug () {
+        return _debug;
     }
 }
