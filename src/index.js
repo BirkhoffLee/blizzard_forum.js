@@ -26,15 +26,22 @@ function TopicNotFoundError (message) {
 TopicNotFoundError.prototype = Object.create(Error.prototype);
 TopicNotFoundError.prototype.constructor = TopicNotFoundError;
 
+function StatusCodeError (message) {
+  this.name = 'StatusCodeError';
+  this.message = message;
+  this.stack = (new Error()).stack;
+}
+
+StatusCodeError.prototype = Object.create(Error.prototype);
+StatusCodeError.prototype.constructor = StatusCodeError;
+
 function _query_topic_request_errhandlr (error) {
     if (error.name === "StatusCodeError") {
         if (error.statusCode === 404) {
             throw new TopicNotFoundError("The requested topic couldn't be found. Please check your forum_name and topic_id.")
+        } else {
+            throw new StatusCodeError(`The server returned HTTP status code ${error.statusCode} instead of 200, aborting`)
         }
-
-        // if (error.statusCode !== 200) {
-        //     throw new StatusCodeError(`The server returned HTTP status code ${error.statusCode} instead of 200, aborting`)
-        // }
     } else { throw error }
 }
 

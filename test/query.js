@@ -28,6 +28,14 @@ describe('query', () => {
                     return assert(error.name === "TopicNotFoundError", "should be an TopicNotFoundError")
                 })
             })
+
+            it('should redirect to an another page since the page doesn\'t exist', () => {
+                // https://us.battle.net/forums/en/this_place_doesnt_exist/topic/abcde
+
+                return blizForum.query().topic("this_place_doesnt_exist", "abcde", error => {
+                    return assert(error.name === "StatusCodeError", "should be an StatusCodeError")
+                })
+            })
         })
 
         describe('posts', () => {
