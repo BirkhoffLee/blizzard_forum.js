@@ -11,9 +11,13 @@
         <img src="https://img.shields.io/npm/v/blizzard_forum.svg"
               alt="NPM version" />
     </a>
-    <a href="https://npmjs.org/package/blizzard_forum">
+    <!-- <a href="https://npmjs.org/package/blizzard_forum">
         <img src="https://img.shields.io/npm/dm/blizzard_forum.svg"
               alt="NPM downloads" />
+    </a> -->
+    <a href="https://david-dm.org/BirkhoffLee/blizzard_forum.js">
+        <img src="https://david-dm.org/BirkhoffLee/blizzard_forum.js.svg"
+              alt="Dependencies" />
     </a>
     <a href="https://travis-ci.org/BirkhoffLee/blizzard_forum.js">
         <img src="https://travis-ci.org/BirkhoffLee/blizzard_forum.js.svg?branch=master"
