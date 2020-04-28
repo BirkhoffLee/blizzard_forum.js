@@ -41,6 +41,9 @@
 * **[DOCUMENTATION](#features)** – spec for the visual design of Shields badges.
 * **[LICENSE](LICENSE)** – license information
 
+# Attention
+Blizzard has recently updated how their forum works, the tests on this project is no longer passing. If you'd like to contribute, you're welcome to open a pull request.
+
 # Try Now
 [Run a sample online](https://goo.gl/ns39W6) to see how this API works.
 
