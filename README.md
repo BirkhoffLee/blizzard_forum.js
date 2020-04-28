@@ -54,13 +54,8 @@ $ npm install --save blizzard_forum
 Load it with:
 
 ```js
-// EcmaScript 6 / EcmaScript 2015
 import blizzardForum from "blizzard_forum"
 let blizForum = new blizzardForum()
-
-// Lower versions
-let blizzardForum = require("blizzard_forum")
-let blizForum = new blizzardForum.default()
 ```
 
 That's it. And you may want to set the host and region, which are set to `https://us.battle.net` and `en` by default:
